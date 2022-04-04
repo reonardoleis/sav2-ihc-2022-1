@@ -1,7 +1,9 @@
 import React from "react";
 import classNames from "classnames";
-import { Badge, Container, Table } from "react-bootstrap";
+import { Badge, Button, Container, Table } from "react-bootstrap";
 import NavBar from '../navbar/Navbar';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faFileExport } from "@fortawesome/free-solid-svg-icons";
 
 class Disciplinas extends React.Component {
 
@@ -35,8 +37,9 @@ class Disciplinas extends React.Component {
   }
 
   componentDidMount() {
-
+    this.props.setCurrentTab()
   }
+
 
   render() {
     return (
@@ -45,7 +48,7 @@ class Disciplinas extends React.Component {
         className={classNames("content", { "is-open": this.props.isOpen })}
       >
         <NavBar toggle={this.props.toggle} />
-        <p>Geral > Disciplinas</p>
+        <p>Geral {'>'} Disciplinas</p>
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -53,6 +56,7 @@ class Disciplinas extends React.Component {
               <th>Nome</th>
               <th>Turma</th>
               <th>Professor</th>
+              <th>Acesso</th>
             </tr>
           </thead>
           <tbody>
@@ -63,6 +67,7 @@ class Disciplinas extends React.Component {
                   <td>{ item.title }</td>
                   <td>{ item.group }</td>
                   <td>{ item.teacher }</td>
+                  <td>{ <Button variant="success">Acessar Disciplina <FontAwesomeIcon icon={faArrowRight}/></Button> }</td>
                 </tr>
               ))
             }

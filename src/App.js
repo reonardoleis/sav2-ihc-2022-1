@@ -5,6 +5,7 @@ import SideBar from "./components/sidebar/SideBar";
 import Disciplinas from "./components/disciplinas/Disciplinas";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Agenda from "./components/agenda/agenda";
+import Duvidas from "./components/duvidas/Duvidas";
 
 class App extends React.Component {
   constructor(props) {
@@ -61,12 +62,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="App wrapper">
-        <SideBar toggle={this.toggle} isOpen={this.state.isOpen} changeMenuItem={this.changeMenuItem} currentMenuItem={this.state.currentTab} />
+        <SideBar toggle={this.toggle} isOpen={this.state.isOpen} changeMenuItem={this.changeMenuItem} currentTab={this.state.currentTab} />
         <BrowserRouter>
           <Routes>
-            <Route exact path="disciplinas" element={<Disciplinas toggle={this.toggle}/>}></Route>
-            <Route exact path="agenda" element={<Agenda  toggle={this.toggle}/>}></Route>
-            <Route path="/" element={<Disciplinas  toggle={this.toggle}/>}></Route>
+            <Route exact path="disciplinas" element={<Disciplinas toggle={this.toggle} setCurrentTab={() => {this.setState({ currentTab: 0})}}/>}></Route>
+            <Route exact path="agenda" element={<Agenda  toggle={this.toggle} setCurrentTab={() => {this.setState({ currentTab: 1})} }/>}></Route>
+            <Route exact path="duvidas" element={<Duvidas  toggle={this.toggle} setCurrentTab={() => { this.setState({ currentTab: 2}) }}/>}></Route>
+            <Route path="/" element={<Disciplinas  toggle={this.toggle} setCurrentTab={() => { this.setState({ currentTab: 0}) }}/>}></Route>
           </Routes>
         </BrowserRouter>
       </div>

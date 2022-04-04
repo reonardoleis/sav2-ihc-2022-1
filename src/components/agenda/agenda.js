@@ -4,6 +4,11 @@ import { Container } from "react-bootstrap";
 import NavBar from '../navbar/Navbar';
 
 class Agenda extends React.Component {
+  componentDidMount() {
+    this.props.setCurrentTab()
+  }
+
+  
   render() {
     return (
       <Container
@@ -11,7 +16,7 @@ class Agenda extends React.Component {
         className={classNames("content", { "is-open": this.props.isOpen })}
       >
         <NavBar toggle={this.props.toggle} />
-        <p>Agenda!</p>
+        <p>Agenda</p>
       </Container>
     );
   }

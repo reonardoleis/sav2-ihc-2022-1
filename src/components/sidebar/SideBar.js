@@ -35,7 +35,7 @@ class SideBar extends React.Component {
         <Nav className="flex-column pt-2">
           <p className="ml-3">Selecione uma opção</p>
 
-          <Nav.Item className={this.props.currentMenuItem === 0 ? 'active' : ''} onClick={() => { this.props.changeMenuItem(0); console.log('oi') }}>
+          <Nav.Item className={this.props.currentTab === 0 ? 'active' : ''} onClick={() => { this.props.changeMenuItem(0); console.log('oi') }}>
             <Nav.Link href="/disciplinas" >
               <FontAwesomeIcon icon={faBook} className="mr-2" />
               Disciplinas
@@ -43,21 +43,21 @@ class SideBar extends React.Component {
           </Nav.Item>
 
 
-          <Nav.Item className={this.props.currentMenuItem === 1 ? 'active' : ''} onClick={() => { this.props.changeMenuItem(1) }}>
+          <Nav.Item className={this.props.currentTab === 1 ? 'active' : ''} onClick={() => { this.props.changeMenuItem(1) }}>
             <Nav.Link href="/agenda" onClick={() => { this.props.changeMenuItem(1) }}>
               <FontAwesomeIcon icon={faCalendar} className="mr-2" />
               Agenda
             </Nav.Link>
           </Nav.Item>
 
-          <Nav.Item className={this.props.currentMenuItem === 2 ? 'active' : ''}>
-            <Nav.Link href="/">
+          <Nav.Item className={this.props.currentTab === 2 ? 'active' : ''}>
+            <Nav.Link href="/duvidas">
               <FontAwesomeIcon icon={faQuestion} className="mr-2" />
               Dúvidas Frequentes
             </Nav.Link>
           </Nav.Item>
 
-          <Nav.Item className={this.props.currentMenuItem === 3 ? 'active' : ''}>
+          <Nav.Item className={this.props.currentTab === 3 ? 'active' : ''}>
             <Nav.Link href="/">
               <FontAwesomeIcon icon={faPhone} className="mr-2" />
               Fale Conosco
