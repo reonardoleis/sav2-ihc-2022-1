@@ -4,22 +4,28 @@ import { Badge, Button, Container, Table } from "react-bootstrap";
 import NavBar from '../navbar/Navbar';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faFileExport } from "@fortawesome/free-solid-svg-icons";
-import { getDisciplinas } from "../../mocks/api";
+import { getByCode } from "../../mocks/api";
+import { useParams } from "react-router-dom";
 
-class Disciplinas extends React.Component {
+function withParams(Component) {
+  return props => <Component {...props} params={useParams()} />;
+}
+
+
+class Participantes extends React.Component {
 
   state = {
-    classes: [
-      
-    ]
+    code: '',
+    disciplina: { members: [] }
   }
 
   componentDidMount() {
-    const classes = getDisciplinas();
-    this.setState({ classes: classes });
-    this.props.setCurrentTab()
-  }
+    this.props.setCurrentTab();
 
+    const disciplina = getByCode(this.props.params.disciplina);
+    this.setState({ code: this.props.params.disciplina });
+    this.setState( { disciplina: disciplina });
+  }
 
   render() {
     return (
@@ -28,26 +34,22 @@ class Disciplinas extends React.Component {
         className={classNames("content", { "is-open": this.props.isOpen })}
       >
         <NavBar toggle={this.props.toggle} />
-        <p>Geral {'>'} Disciplinas</p>
+        <p>{this.state.code} {'>'} Participantes</p>
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>Código</th>
               <th>Nome</th>
-              <th>Turma</th>
-              <th>Professor</th>
-              <th>Acesso</th>
+              <th>E-mail</th>
+              <th>Curso</th>
             </tr>
           </thead>
           <tbody>
             { 
-              this.state.classes.map((item, index) => (
+              this.state.disciplina.members.map((item, index) => (
                 <tr>
-                  <td><Badge variant="dark">{ item.code }</Badge></td>
-                  <td>{ item.title }</td>
-                  <td>{ item.group }</td>
-                  <td>{ item.teacher }</td>
-                  <td><a href={`${item.code}/info-geral`}>{ <Button variant="success">Acessar Disciplina <FontAwesomeIcon icon={faArrowRight}/></Button> }</a></td>
+                  <td>{ item.name }</td>
+                  <td>{ item.email }</td>
+                  <td>{ item.graduation }</td>
                 </tr>
               ))
             }
@@ -58,4 +60,4 @@ class Disciplinas extends React.Component {
   }
 }
 
-export default Disciplinas;
+export default withParams(Participantes);

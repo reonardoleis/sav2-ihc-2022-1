@@ -148,3 +148,46 @@ li a.dropdown-toggle::after {
 }
 
 
+.rbc-date-cell {
+  color: white !important
+}
+
+.rbc-toolbar-label {
+  color: white !important
+}
+
+.rbc-btn-group div {
+  color: white !important
+}
+
+.rbc-label {
+  color: white !important
+}
+
+.rbc-header  {
+  color: white !important
+}
+
+.rbc-time-slot {
+  background-color: #343a40!important;
+}
+
+.rbc-timeslot-group {
+  background-color: #343a40!important;
+}
+
+.rbc-agenda-event-cell {
+  color: white !important
+}
+
+.rbc-agenda-date-cell {
+  color: white !important
+}
+.rbc-agenda-time-cell {
+  color: white !important;
+}
+
+.agenda-container {
+  max-height: 70vh !important;
+  overflow: scroll;
+}
