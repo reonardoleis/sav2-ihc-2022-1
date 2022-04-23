@@ -36,7 +36,7 @@ class Freq extends React.Component {
         className={classNames("content", { "is-open": this.props.isOpen })}
       >
         <NavBar toggle={this.props.toggle} />
-        <p>{this.state.code} {'>'} Lista de Frequência</p>
+        <p>{`${this.state.code} - ${this.state.disciplina.title}`}  {'>'} Lista de Frequência</p>
         <Table striped bordered hover>
           <thead>
             <tr>

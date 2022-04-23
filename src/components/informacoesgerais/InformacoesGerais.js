@@ -35,7 +35,7 @@ class InformacoesGerais extends React.Component {
         className={classNames("content", { "is-open": this.props.isOpen })}
       >
         <NavBar toggle={this.props.toggle} />
-        <p>{this.state.code} {'>'} Informações Gerais</p>
+        <p>{`${this.state.code} - ${this.state.disciplina.title}`}  {'>'} Informações Gerais</p>
         <Container fluid className="bg-white pt-5 pb-5 pl-3">
           <h3>Unidade: {this.state.disciplina.department}<br></br><br></br></h3>
           <h3>Órgão: {this.state.disciplina.area}<br></br><br></br></h3>

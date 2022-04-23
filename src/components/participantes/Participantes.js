@@ -34,7 +34,7 @@ class Participantes extends React.Component {
         className={classNames("content", { "is-open": this.props.isOpen })}
       >
         <NavBar toggle={this.props.toggle} />
-        <p>{this.state.code} {'>'} Participantes</p>
+        <p>{`${this.state.code} - ${this.state.disciplina.title}`}  {'>'} Participantes</p>
         <Table striped bordered hover>
           <thead>
             <tr>

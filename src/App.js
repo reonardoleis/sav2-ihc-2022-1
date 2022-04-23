@@ -8,6 +8,7 @@ import Agenda from "./components/agenda/agenda";
 import Duvidas from "./components/duvidas/Duvidas";
 
 import "react-big-calendar-like-google/lib/css/react-big-calendar.css";
+import 'react-toastify/dist/ReactToastify.css';
 import FaleConosco from "./components/faleconosco/FaleConosco";
 import SideBar2 from "./components/sidebar/SideBar2";
 import InformacoesGerais from "./components/informacoesgerais/InformacoesGerais";
@@ -15,6 +16,7 @@ import Participantes from "./components/participantes/Participantes";
 import Freq from "./components/freq/Freq";
 import Grades from "./components/grades/Grades";
 import Bibliografia from "./components/bibliografia/Bibliografia";
+import Email from "./components/email/Email";
 
 class App extends React.Component {
   constructor(props) {
@@ -96,6 +98,7 @@ class App extends React.Component {
             <Route exact path="fale-conosco" element={<FaleConosco  toggle={this.toggle} setCurrentTab={() => { this.setState({ currentTab: 3}) }}/>}></Route>
             <Route exact path=":disciplina/info-geral" element={<InformacoesGerais  toggle={this.toggle} setCurrentTab={() => { this.setState({ currentTab: 1}) }}/>}></Route>
             <Route exact path=":disciplina/participantes" element={<Participantes  toggle={this.toggle} setCurrentTab={() => { this.setState({ currentTab: 2}) }}/>}></Route>
+            <Route exact path=":disciplina/email" element={<Email  toggle={this.toggle} setCurrentTab={() => { this.setState({ currentTab: 3}) }}/>}></Route>
             <Route exact path=":disciplina/frequencia" element={<Freq  toggle={this.toggle} setCurrentTab={() => { this.setState({ currentTab: 4}) }}/>}></Route>
             <Route exact path=":disciplina/notas" element={<Grades  toggle={this.toggle} setCurrentTab={() => { this.setState({ currentTab: 5}) }}/>}></Route>
             <Route exact path=":disciplina/bibliografia" element={<Bibliografia  toggle={this.toggle} setCurrentTab={() => { this.setState({ currentTab: 6}) }}/>}></Route>

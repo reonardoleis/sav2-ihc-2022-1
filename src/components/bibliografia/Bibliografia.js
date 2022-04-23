@@ -48,7 +48,7 @@ class Bibliografia extends React.Component {
         className={classNames("content", { "is-open": this.props.isOpen })}
       >
         <NavBar toggle={this.props.toggle} />
-        <p>{this.state.code} {'>'} Bibliografia</p>
+        <p>{`${this.state.code} - ${this.state.disciplina.title}`}  {'>'} Bibliografia</p>
         <Table striped bordered hover>
           <thead>
             <tr>

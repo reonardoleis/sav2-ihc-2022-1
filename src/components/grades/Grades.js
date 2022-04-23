@@ -48,7 +48,7 @@ class Grades extends React.Component {
         className={classNames("content", { "is-open": this.props.isOpen })}
       >
         <NavBar toggle={this.props.toggle} />
-        <p>{this.state.code} {'>'} Notas </p>
+        <p>{`${this.state.code} - ${this.state.disciplina.title}`}  {'>'} Notas </p>
         <Table striped bordered hover>
           <thead>
             <tr>

@@ -32,6 +32,7 @@ a:focus {
   max-width: 250px;
   background: #272727;
   color: #adb5bd;
+  min-height: 100% !important;
   margin-left: -250px;
   transition: all 0.5s;
 }
@@ -189,5 +190,15 @@ li a.dropdown-toggle::after {
 
 .agenda-container {
   max-height: 70vh !important;
+  overflow: scroll;
+}
+
+.container {
+  max-height: 100% !important;
+  overflow: scroll;
+}
+
+.container-fluid {
+  max-height: 100% !important;
   overflow: scroll;
 }
